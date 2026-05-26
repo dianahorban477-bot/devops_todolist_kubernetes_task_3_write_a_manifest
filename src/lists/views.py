@@ -78,3 +78,12 @@ def add_todolist(request):
             return render(request, "lists/overview.html", {"form": form})
 
     return redirect("lists:index")
+
+def readiness_check(request):
+    if time.time() < start_time + startup_period:
+        return HttpResponse("Not ready", status=503)
+    else:
+        return HttpResponse("Ready", status=200)
+
+def liveness_check(request):
+    return HttpResponse("Health", status=200)
