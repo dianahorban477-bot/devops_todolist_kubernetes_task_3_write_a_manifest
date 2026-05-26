@@ -19,3 +19,11 @@ kubectl apply -f src/.infrastructure/busybox.yml
 
 # 3. Deploy the core ToDo application pod with configured probes
 kubectl apply -f src/.infrastructure/todoapp-pod.yml
+
+# The instruction of running and testing Todo ap in Kubernetes
+## 1. Using Kubernetes's manifests
+For unpackung the app execute next commands from the root directory of project:
+```bash
+kubectl apply -f .infrastructure/namespace.yml
+kubectl apply -f .infrastructure/busybox.yml
+kubectl apply -f .infrastructure/todoapp-pod.yml
